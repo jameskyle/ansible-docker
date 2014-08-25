@@ -1,0 +1,97 @@
+---
+# file: roles/docker/tasks/main.yml
+- name: disable selinux
+  selinux: state=disabled
+  when: ansible_os_family == "RedHat" and disable_selinux == true
+  sudo: yes
+  tags:
+      - docker
+
+- name: Install EPEL Repo
+  yum:  name=http://dl.fedoraproject.org/pub/epel/beta/7/x86_64/epel-release-7-0.2.noarch.rpm state=present
+  when: ansible_distribution == "CentOS"
+  sudo: yes
+  when: ansible_os_family == "RedHat"
+  tags: 
+      - packages
+      - docker
+
+- name: Install Packages
+  yum:  name={{ item }} state=latest
+  when: ansible_os_family == "RedHat"
+  sudo: yes
+  with_items:
+      - docker
+      - docker-registry
+      - btrfs-progs
+      - bridge-utils
+  notify:
+    - restart docker registry
+  tags: 
+      - packages
+      - docker
+
+- name: Deploy ca.crt
+  copy: src={{ primary_group}}/ca.crt dest=/etc/pki/tls/private/ca.crt owner=root group=root mode=0640
+  sudo: yes
+  tags:
+      - docker
+- name: Deploy server.crt
+  copy: src={{ primary_group }}/server.crt dest=/etc/pki/tls/private/server.crt owner=root group=root mode=0640
+  sudo: yes
+  tags:
+      - docker
+
+- name: Deploy server.key
+  copy: src={{ primary_group }}/server-key.pem dest=/etc/pki/tls/private/server.key owner=root group=root mode=0640
+  sudo: yes
+  tags:
+      - docker
+- name: Create docker.socket directory path
+  command: mkdir -p "{{ docker_socket_directory }}"
+  sudo: yes
+  tags:
+      - docker
+- name: Create docker.socket unit
+  template: src=docker.socket dest=/etc/systemd/system/docker.socket owner=root group=root mode=0644
+  sudo: yes
+  notify: 
+      - reload systemctl
+      - restart docker socket
+  tags:
+    - docker
+
+- name: Link docker.socket to standard location
+  file: src={{ docker_socket_directory }}/docker.sock
+        dest=/var/run/docker.sock
+        state=link
+        force=yes
+  sudo: yes
+  tags: 
+    - docker
+  when: docker_socket_directory != "/var/run"
+
+- name: docker.service
+  template: src=docker.service dest=/etc/systemd/system/docker.service owner=root group=root mode=0644
+  sudo: yes
+  notify: 
+      - reload systemctl
+      - restart docker
+  tags:
+      - docker
+
+- name: Add Docker Users to Docker Group
+  user: name={{ item }} groups=docker append=yes
+  with_items: docker_users
+  sudo: yes
+  tags:
+      - docker
+
+- name: Enable & Start Services
+  service:  name={{ item }} state=started enabled=yes
+  with_items:
+      - docker.socket
+      - docker.service
+  sudo: yes
+  tags:
+    - docker

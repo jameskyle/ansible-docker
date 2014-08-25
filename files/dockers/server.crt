@@ -1,0 +1,97 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 1 (0x1)
+    Signature Algorithm: sha1WithRSAEncryption
+        Issuer: C=US, ST=California, L=Palo Alto, O=AT&T, OU=Foundry, CN=*
+        Validity
+            Not Before: Aug 21 20:59:20 2014 GMT
+            Not After : Aug 18 20:59:20 2024 GMT
+        Subject: C=US, ST=California, O=AT&T, OU=Foundry, CN=*
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:b9:e4:f8:9e:9f:48:be:0f:c9:55:b3:71:37:1f:
+                    cb:b3:06:96:92:1b:e4:32:e2:31:4c:9d:a1:53:9c:
+                    91:bc:d1:c4:e8:46:16:3d:3e:44:5e:ab:4f:6d:56:
+                    dc:c5:71:e3:3a:42:a7:22:52:b9:06:84:5c:34:32:
+                    3b:30:62:92:70:28:54:90:c1:21:08:27:76:9b:1a:
+                    e0:75:1b:61:cc:61:93:fa:c5:aa:86:c7:58:eb:cc:
+                    b0:65:59:99:86:e6:a9:a2:b3:60:7b:91:53:04:71:
+                    40:59:6a:1a:65:49:e1:f5:6c:a4:fd:e6:76:82:80:
+                    e7:ed:9a:8b:bd:9e:97:42:34:04:05:29:c0:d8:c1:
+                    8b:7b:84:9e:09:d2:4d:09:ab:ee:5a:cc:c7:ba:6f:
+                    85:31:d5:26:72:f9:cd:01:8a:07:60:63:2b:4f:07:
+                    94:c8:8f:00:ad:bc:a5:f3:be:74:8c:67:2f:08:f7:
+                    74:48:f2:17:03:e3:3d:ec:b8:51:02:49:c3:72:96:
+                    f8:f6:a8:98:3e:06:3c:5b:e6:b2:1a:91:e1:5e:4e:
+                    67:2b:f5:b8:7c:4d:b2:31:06:48:0b:db:f3:0d:09:
+                    2e:c2:2a:fc:fd:cd:c4:c0:87:89:38:4b:b8:0a:12:
+                    0e:6a:3b:e0:4c:54:3f:3c:8d:f0:27:72:36:0a:14:
+                    80:ed
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Cert Type: 
+                SSL Server
+            Netscape Comment: 
+                OpenSSL Generated Server Certificate
+            X509v3 Subject Key Identifier: 
+                F3:7F:D2:7D:94:29:06:54:04:AE:84:A8:71:C2:78:9A:BE:74:74:99
+            X509v3 Authority Key Identifier: 
+                keyid:8C:A2:C8:C3:B9:D5:06:CB:DC:66:7A:1D:48:12:66:71:1E:4B:35:53
+                DirName:/C=US/ST=California/L=Palo Alto/O=AT&T/OU=Foundry/CN=*
+                serial:8C:18:6C:99:D5:84:1B:4B
+
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication
+            X509v3 Key Usage: 
+                Digital Signature, Key Encipherment
+            X509v3 Subject Alternative Name: 
+                DNS:dock1.pao19.tfoundry.com, DNS:dock2.pao19.tfoundry.com, DNS:dock3.pao19.tfoundry.com, DNS:dock4.pao19.tfoundry.com
+    Signature Algorithm: sha1WithRSAEncryption
+         23:7c:cf:ba:bb:a6:cf:05:42:62:61:8d:8f:9b:04:de:ce:fb:
+         70:c0:f9:3e:33:8b:51:b8:de:b2:77:2a:49:92:12:64:25:47:
+         24:2e:b5:7a:18:4d:41:e7:75:8d:44:66:33:de:a1:ee:ad:55:
+         ad:c5:6b:9e:ba:c8:e4:a7:ca:4d:19:11:d7:cd:76:e0:b4:55:
+         1d:db:dc:3c:15:74:b7:90:28:20:e2:34:84:86:b2:32:c6:89:
+         26:a5:1e:33:c0:71:38:9f:7d:52:09:85:80:9c:6f:f3:61:b9:
+         a4:69:3c:02:ea:03:af:4a:0b:ee:33:4f:87:40:43:c2:72:90:
+         56:91:8b:fd:24:20:23:ef:b5:e5:29:28:7b:97:77:9f:ea:e6:
+         c2:a7:d8:cd:03:04:5b:e5:a5:18:3f:fd:45:55:b2:cd:36:c9:
+         0d:2a:10:c3:72:05:8e:fd:99:eb:c8:ad:9f:75:54:87:7b:b8:
+         9c:12:27:00:b7:61:99:3d:ff:3e:57:ea:94:9e:d5:18:be:e9:
+         82:2c:bc:0e:d8:c3:5d:d1:67:2d:b2:b8:c7:45:0f:bd:8e:01:
+         83:45:ea:db:8e:ab:df:25:6a:de:8f:3d:de:1a:91:15:89:77:
+         90:20:a2:7f:f2:33:a9:06:87:78:36:f4:a1:57:26:43:04:37:
+         3a:8b:3a:28
+-----BEGIN CERTIFICATE-----
+MIIE0jCCA7qgAwIBAgIBATANBgkqhkiG9w0BAQUFADBjMQswCQYDVQQGEwJVUzET
+MBEGA1UECAwKQ2FsaWZvcm5pYTESMBAGA1UEBwwJUGFsbyBBbHRvMQ0wCwYDVQQK
+DARBVCZUMRAwDgYDVQQLDAdGb3VuZHJ5MQowCAYDVQQDDAEqMB4XDTE0MDgyMTIw
+NTkyMFoXDTI0MDgxODIwNTkyMFowTzELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNh
+bGlmb3JuaWExDTALBgNVBAoMBEFUJlQxEDAOBgNVBAsMB0ZvdW5kcnkxCjAIBgNV
+BAMMASowggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC55Pien0i+D8lV
+s3E3H8uzBpaSG+Qy4jFMnaFTnJG80cToRhY9PkReq09tVtzFceM6QqciUrkGhFw0
+MjswYpJwKFSQwSEIJ3abGuB1G2HMYZP6xaqGx1jrzLBlWZmG5qmis2B7kVMEcUBZ
+ahplSeH1bKT95naCgOftmou9npdCNAQFKcDYwYt7hJ4J0k0Jq+5azMe6b4Ux1SZy
++c0BigdgYytPB5TIjwCtvKXzvnSMZy8I93RI8hcD4z3suFECScNylvj2qJg+Bjxb
+5rIakeFeTmcr9bh8TbIxBkgL2/MNCS7CKvz9zcTAh4k4S7gKEg5qO+BMVD88jfAn
+cjYKFIDtAgMBAAGjggGjMIIBnzAJBgNVHRMEAjAAMBEGCWCGSAGG+EIBAQQEAwIG
+QDAzBglghkgBhvhCAQ0EJhYkT3BlblNTTCBHZW5lcmF0ZWQgU2VydmVyIENlcnRp
+ZmljYXRlMB0GA1UdDgQWBBTzf9J9lCkGVASuhKhxwniavnR0mTCBlQYDVR0jBIGN
+MIGKgBSMosjDudUGy9xmeh1IEmZxHks1U6FnpGUwYzELMAkGA1UEBhMCVVMxEzAR
+BgNVBAgMCkNhbGlmb3JuaWExEjAQBgNVBAcMCVBhbG8gQWx0bzENMAsGA1UECgwE
+QVQmVDEQMA4GA1UECwwHRm91bmRyeTEKMAgGA1UEAwwBKoIJAIwYbJnVhBtLMBMG
+A1UdJQQMMAoGCCsGAQUFBwMBMAsGA1UdDwQEAwIFoDBxBgNVHREEajBoghhkb2Nr
+MS5wYW8xOS50Zm91bmRyeS5jb22CGGRvY2syLnBhbzE5LnRmb3VuZHJ5LmNvbYIY
+ZG9jazMucGFvMTkudGZvdW5kcnkuY29tghhkb2NrNC5wYW8xOS50Zm91bmRyeS5j
+b20wDQYJKoZIhvcNAQEFBQADggEBACN8z7q7ps8FQmJhjY+bBN7O+3DA+T4zi1G4
+3rJ3KkmSEmQlRyQutXoYTUHndY1EZjPeoe6tVa3Fa566yOSnyk0ZEdfNduC0VR3b
+3DwVdLeQKCDiNISGsjLGiSalHjPAcTiffVIJhYCcb/NhuaRpPALqA69KC+4zT4dA
+Q8JykFaRi/0kICPvteUpKHuXd5/q5sKn2M0DBFvlpRg//UVVss02yQ0qEMNyBY79
+mevIrZ91VId7uJwSJwC3YZk9/z5X6pSe1Ri+6YIsvA7Yw13RZy2yuMdFD72OAYNF
+6tuOq98lat6PPd4akRWJd5Agon/yM6kGh3g29KFXJkMENzqLOig=
+-----END CERTIFICATE-----
