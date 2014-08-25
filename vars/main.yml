@@ -1,0 +1,4 @@
+docker_socket_directory: /var/run
+disable_selinux: true
+primary_group: docker
+enable_btrfs: true

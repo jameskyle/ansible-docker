@@ -1,0 +1,15 @@
+[Unit]
+Description=Docker Socket for the API
+
+[Socket]
+ListenStream={{ docker_socket_directory }}/docker.sock
+
+{% if ansible_distribution == "CentOS" -%}
+ExecStartPost=/bin/sh -c '/bin/chown root:docker {{ docker_socket_directory }}/docker.sock && /bin/chmod 0660 {{ docker_socket_directory }}/docker.sock'
+{% else -%}
+SocketMode=0660
+SocketUser=root
+SocketGroup=docker
+{% endif -%}
+[Install]
+WantedBy=sockets.target

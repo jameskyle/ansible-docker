@@ -1,0 +1,15 @@
+---
+- name: restart docker
+  service: name=docker.service state=restarted enabled=yes
+  sudo: yes
+
+- name: restart docker socket
+  service: name=docker.socket state=restarted enabled=yes
+  sudo: yes
+
+- name: reload systemctl
+  command: /usr/bin/systemctl daemon-reload
+  sudo: yes
+
+- name: restart docker registry
+  command: /usr/bin/systemctl restart docker-registry enabled=yes
