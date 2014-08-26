@@ -7,51 +7,29 @@
   tags:
       - docker
 
-- name: Install EPEL Repo
-  yum:  name=http://dl.fedoraproject.org/pub/epel/beta/7/x86_64/epel-release-7-0.2.noarch.rpm state=present
-  when: ansible_distribution == "CentOS"
-  sudo: yes
-  when: ansible_os_family == "RedHat"
-  tags: 
-      - packages
-      - docker
+- include: epl.yml
+  when: binary != true
 
-- name: Install Packages
-  yum:  name={{ item }} state=latest
-  when: ansible_os_family == "RedHat"
-  sudo: yes
+- include: binary.yml
+  when: binary == true
+
+- include: certs.yml
+
+- name: Install BTRFS Support
+  yum: name={{ item }} state=latest
+  when: enable_btrfs == true
   with_items:
-      - docker
-      - docker-registry
-      - btrfs-progs
-      - bridge-utils
-  notify:
-    - restart docker registry
-  tags: 
-      - packages
-      - docker
+    - btrfs-progs
+    - bridge-utils
+  tags:
+    - packages
 
-- name: Deploy ca.crt
-  copy: src={{ primary_group}}/ca.crt dest=/etc/pki/tls/private/ca.crt owner=root group=root mode=0640
-  sudo: yes
-  tags:
-      - docker
-- name: Deploy server.crt
-  copy: src={{ primary_group }}/server.crt dest=/etc/pki/tls/private/server.crt owner=root group=root mode=0640
-  sudo: yes
-  tags:
-      - docker
-
-- name: Deploy server.key
-  copy: src={{ primary_group }}/server-key.pem dest=/etc/pki/tls/private/server.key owner=root group=root mode=0640
-  sudo: yes
-  tags:
-      - docker
 - name: Create docker.socket directory path
   command: mkdir -p "{{ docker_socket_directory }}"
   sudo: yes
   tags:
       - docker
+
 - name: Create docker.socket unit
   template: src=docker.socket dest=/etc/systemd/system/docker.socket owner=root group=root mode=0644
   sudo: yes
@@ -86,6 +64,8 @@
   sudo: yes
   tags:
       - docker
+
+- meta: flush_handlers
 
 - name: Enable & Start Services
   service:  name={{ item }} state=started enabled=yes

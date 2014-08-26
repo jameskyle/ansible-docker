@@ -27,6 +27,14 @@ enable_btrfs
     Enable the btrfs docker driver.
     default: true
 
+binary
+    Install the latest binary from get.docker.io
+    default: yes
+
+binary_arch
+    The arch of the binary to install. 
+    default: x86_64
+
 Deployment
 ==========
 

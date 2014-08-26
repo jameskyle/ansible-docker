@@ -1,0 +1,13 @@
+- name: Ensure /usr/local/bin
+  file: path=/usr/local/bin mode=755 owner=root group=root state=directory 
+  sudo: yes
+
+- name: Install Docker Binary
+  get_url: url="https://get.docker.io/builds/Linux/{{ binary_arch }}/docker-latest"
+        dest=/usr/local/bin/docker
+        validate_certs=yes
+  sudo: yes
+
+- name: Set docker permissions
+  file: path=/usr/local/bin/docker mode=0755 owner=root group=root
+  sudo: yes
