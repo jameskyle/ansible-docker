@@ -1,0 +1,22 @@
+- name: Install EPEL Repo
+  yum:  name=http://dl.fedoraproject.org/pub/epel/beta/7/x86_64/epel-release-7-0.2.noarch.rpm state=present
+  when: ansible_distribution == "CentOS"
+  sudo: yes
+  when: ansible_os_family == "RedHat"
+  tags: 
+      - packages
+      - docker
+
+- name: Install Packages
+  yum:  name={{ item }} state=latest
+  when: ansible_os_family == "RedHat"
+  sudo: yes
+  with_items:
+      - docker
+      - docker-registry
+  notify:
+    - restart docker registry
+  tags: 
+      - packages
+      - docker
+

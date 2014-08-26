@@ -1,0 +1,17 @@
+- name: Deploy ca.crt
+  copy: src={{ primary_group}}/ca.crt dest=/etc/pki/tls/private/ca.crt owner=root group=root mode=0640
+  sudo: yes
+  tags:
+      - docker
+- name: Deploy server.crt
+  copy: src={{ primary_group }}/server.crt dest=/etc/pki/tls/private/server.crt owner=root group=root mode=0640
+  sudo: yes
+  tags:
+      - docker
+
+- name: Deploy server.key
+  copy: src={{ primary_group }}/server-key.pem dest=/etc/pki/tls/private/server.key owner=root group=root mode=0640
+  sudo: yes
+  tags:
+      - docker
+
